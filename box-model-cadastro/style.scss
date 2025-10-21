@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}//box-sizing: border-box é uma das formas de controlar como o tamanho de um elemento é calculado dentro desse modelo
+
+// Eu ki fiz!
+body {
+    background-image: url(imagens/valorant.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main {
+    font-family: "Arial", sans-serif;
+    height: 100vh;
+    padding-top: 55px;
+    text-align: center;
+}
+
+.form-container {
+    display: inline-block; //Vai permitir que o nosso formulário fique no centro da tela porque o main está com a propriedade text-align definida.
+    width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgb(255, 0, 0);
+    padding: 40px 30px;
+
+    // minha gambi pra colocar o formulário mais abaixo e com fundo branco
+    margin-top: 55px;
+    background-color: #fff;
+
+
+    h1 {
+    margin-bottom: 25px;
+    font-size: 22px;
+    color: #222;
+    }
+
+    form {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        display: block; //Vai permitir que os elementos fiquem um embaixo do outro, cada input vai ocupar uma linha inteira.
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+
+    .input-row  {
+        padding-top: 15px;
+        input {
+            width: 43%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            display: inline-block;
+        }
+        input:first-child {
+            margin-right: 40px;
+        }//:first-child é uma pseudo-classe CSS que seleciona um elemento se ele for o primeiro filho dentro de seu elemento pai.
+        }
+    }
+
+    .checkbox {
+        display: block;
+        text-align: center;
+        font-size: 12px;
+        color: #555;
+        margin: 10px 0;
+
+        a {
+            color: #2764c0;
+            text-decoration: none;
+            display: inline-block;
+
+            &:hover {
+                text-decoration: underline;
+            }//O & é uma convenção do SCSS que se refere ao seletor pai. Assim, estamos aplicando o hover no elemento a.
+        }
+    }
+
+}
+
+button {
+    background: #e23d3d;
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: darken(#e23d3d, 10%);
+    }//O & é uma convenção do SCSS que se refere ao seletor pai. darken() é uma função de pré-processadores de CSS (como Sass ou Less) que escurece uma cor em uma porcentagem especificada.
+}
+
+// Medidas absolutas
+// px -> Pixel é a unidade mais comun no SCSS. Um pixel é como um pontinho na tela
+// pt -> Ponto vêm do mundo da tipografia (impressão), também pouco usados na web
+// cm -> Centímetro são medidas físicas, mas quase não usamos no SCSS
+// pc -> Paica vem do mundo da tipografia (impressão), também pouco usado na web
+// in -> Polegadas são medidas físicas, mas quase não usamos no SCSS
+
+// Medidas relativas 
+// % -> Porcentagem representa uma parte de um valor maior, geralmente do elemento "pai".
+// em ->  Baseia-se no tamanho da fonte do elemento pai. Exemplo: se a fonte do pai é 16px, 1em = 16px. Se você usar 2em, será 32px.
+// rem -> (root em) Parecida com o em, mas se baseia no tamanho da fonte do elemento raiz (geralmente o <html>). Exemplo: se no <html> estiver font-size: 16px, então 1rem = 16px em todo o documento.
+// VH -> (viewport height - altura da tela) 
+// VW -> (viewport width - largura da tela) 
+// Viewport é uma palavra em inglês que significa algo como "área visível da tela". No mundo do desenvolvimento web, ela representa a parte da página que está sendo exibida no navegador do usuário, ou seja, aquilo que a pessoa consegue ver sem precisar rolar a tela.

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula forms (regex)</title>
+  </head>
+  <body>
+    <h1>Cadastro</h1>
+    <form action="/enviar" method="post">
+      <!-- NOME: apenas letras e espaços -->
+      <label for="nome">Nome completo:</label>
+      <!--__ ^ _____________ Diz que a validação começa no começo do texto -->
+      <!-- [A-Za-zÀ-ÿ\s]________ Aceita letras maiúsculas e minúsculas, acentos e espaços -->
+      <!-- {3,50}______ O nome precisa ter no mínimo 3 e no máximo 50 caracteres -->
+      <!-- $_______ Diz que a validação termina no fim do texto -->
+      <input
+        type="text"
+        id="nome"
+        name="nome"
+        placeholder="Digite seu nome completo"
+        pattern="^[A-Za-zÀ-ÿ\s]{3,50}$"
+        title="O nome deve conter apenas letras e espaços (mínimo 3 caracteres)"
+        required
+      />
+      <br /><br />
+      <label for="cpf">CPF:</label>
+      <!--  \d{3} _____________ Três dígitos -->
+      <!--  \.?________ Ponto opcional -->
+      <!-- \d{3} ______ Mais três dígitos -->
+      <!--  \.?________ Ponto opcional novamente -->
+      <!-- \d{3} ______ Mais três dígitos -->
+      <!-- -? ______ Hífen opcional -->
+      <!-- \d{2} ______ Dois dígitos finais -->
+
+      <!-- Se o campo fosse type="number", o navegador não permitiria digitar o . (ponto) e o - (traço), pois ele só aceita dígitos. -->
+      <input
+        type="text"
+        id="cpf"
+        name="cpf"
+        placeholder="Digite seu CPF (somente números)"
+        pattern="^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$"
+        title="Digite um CPF válido. Exemplo: 123.456.789-00 ou 12345678900"
+        required
+      />
+
+      <br />
+      <!-- TELEFONE: formato brasileiro -->
+      <label for="telefone">Telefone:</label>
+      <!--  \(? _____________ Pode ter o ( antes do DDD ou não -->
+      <!--  \d{2}________ Dois dígitos, Representa o DDD -->
+      <!-- \)? ______ Parêntese direito opcional -->
+      <!--  \s?________ Espaço opcional -->
+      <!-- \d{4,5} ______ Permite telefones de 8 ou 9 dígitos -->
+      <!-- -? ______ Hífen opcional -->
+      <!-- \d{4} ______ Últimos 4 dígitos do telefone -->
+      <input
+        type="tel"
+        id="telefone"
+        name="telefone"
+        placeholder="(XX) XXXXX-XXXX"
+        pattern="^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$"
+        title="Formato esperado: (99) 99999-9999"
+      />
+      <br />
+
+      <br />
+      <!-- EMAIL: validação com regex -->
+      <label for="email">E-mail:</label>
+      <!--  ^[a-zA-Z0-9._%+-]+ ____ Parte antes do @ pode ter letras, números, pontos, etc. -->
+      <!--  @ ________ O símbolo do e-mail -->
+      <!-- [a-zA-Z0-9.-]+ ______ Domínio (ex: gmail, hotmail, etc.) -->
+      <!--  \.________ Um ponto literal -->
+      <!-- [a-zA-Z]{2,} ______ Extensão com pelo menos 2 letras (ex: .com, .br) -->
+
+      <!-- o + antes do @ garante que exista ao menos um caractere antes do símbolo,
+      enquanto o @ sozinho apenas indica onde o símbolo deve aparecer. -->
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="exemplo@dominio.com"
+        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$"
+        title="Digite um e-mail válido (ex: usuario@dominio.com)"
+      />
+      <br /><br />
+      <!-- SENHA: pelo menos 8 caracteres, 1 letra maiúscula, 1 minúscula, 1 número -->
+      <label for="senha">Senha:</label>
+
+      <!-- (?=.*[a-z])_____Lookahead positiva: diz “em algum ponto à frente deve existir pelo menos uma letra minúscula. 
+    (a–z)”._____Não consome caracteres — apenas verifica a existência.
+    (?=.*[A-Z])_______Outra lookahead positiva: garante que haja pelo menos uma letra maiúscula.
+    (?=.*\d)______Lookahead que exige pelo menos um dígito (\d é o mesmo que [0-9]).
+    .{8,}________Depois das lookaheads, . representa qualquer caractere (exceto newline em muitas engines).
+    {8,}_______ significa 8 ou mais desses caracteres — ou seja, comprimento mínimo 8, sem limite máximo definido aqui. -->
+
+      <input
+        type="password"
+        id="senha"
+        name="senha"
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$"
+        title="A senha deve ter ao menos 8 caracteres, incluindo uma letra maiúscula, uma minúscula e um número."
+      />
+      <br /><br />
+      <!-- PLUS -->
+      <!-- Campo de Data -->
+      <label for="data">Data de Nascimento:</label>
+      <input
+        type="text"
+        id="data"
+        name="data"
+        placeholder="DD/MM/AAAA"
+        pattern="^\d{2}/\d{2}/\d{4}$"
+        title="Digite no formato DD/MM/AAAA (ex: 12/10/2025)"
+        required
+      />
+      <br /><br />
+      <!-- TEXTAREA -->
+      <label for="mensagem">Deixe sua mensagem:</label><br />
+      <textarea
+        id="mensagem"
+        name="mensagem"
+        rows="4"
+        cols="40"
+        placeholder="Escreva algo..."
+      ></textarea>
+      <br /><br />
+      <!-- SUBMIT -->
+      <input type="submit" value="Enviar Formulário" />
+    </form>
+  </body>
+</html>
+
+<!-- Observações importantes / limitações
+
+Validação no cliente não é suficiente
+
+pattern roda no navegador (client-side). Sempre repita a validação no servidor — usuários maliciosos podem contornar o front-end.
+
+[a-z] e [A-Z] referem-se a ASCII
+
+Letras acentuadas (ex.: ç, á, é) não são cobertas por [a-z]/[A-Z]. Se você precisa suportar alfabetos/acentos, a regex/estratégia deve mudar (por exemplo, usar \p{L} com flag u — mas HTML pattern não suporta flags; e \p{L} pode não ser suportado em todos os navegadores).
+
+.{8,} aceita qualquer caractere (incluindo símbolos)
+
+Isso é geralmente bom (permite símbolos), mas se você quiser exigir símbolos especiais, adicione outra lookahead: (?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).
+
+Sem limite máximo
+
+.{8,} aceita comprimentos arbitrariamente grandes. Você pode adicionar um máximo, ex.: .{8,64} para limitar a 64 caracteres.
+
+Compatibilidade do HTML pattern
+
+A especificação usa a sintaxe de regex do JavaScript. A maioria dos navegadores modernos suporta lookaheads, então esse pattern funciona na prática na maioria dos casos. Mesmo assim, sempre teste nos navegadores que sua aplicação precisa suportar. -->

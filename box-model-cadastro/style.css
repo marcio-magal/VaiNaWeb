@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(imagens/valorant.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main {
+  font-family: "Arial", sans-serif;
+  height: 100vh;
+  padding-top: 55px;
+  text-align: center;
+}
+
+.form-container {
+  display: inline-block;
+  width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgb(255, 0, 0);
+  padding: 40px 30px;
+  margin-top: 55px;
+  background-color: #fff;
+}
+.form-container h1 {
+  margin-bottom: 25px;
+  font-size: 22px;
+  color: #222;
+}
+.form-container form input[type=text],
+.form-container form input[type=email],
+.form-container form input[type=password] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.form-container form .input-row {
+  padding-top: 15px;
+}
+.form-container form .input-row input {
+  width: 43%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  display: inline-block;
+}
+.form-container form .input-row input:first-child {
+  margin-right: 40px;
+}
+.form-container .checkbox {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+  margin: 10px 0;
+}
+.form-container .checkbox a {
+  color: #2764c0;
+  text-decoration: none;
+  display: inline-block;
+}
+.form-container .checkbox a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background: #e23d3d;
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background-color: rgb(205.3094170404, 30.6905829596, 30.6905829596);
+}/*# sourceMappingURL=style.css.map */
