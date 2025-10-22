@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }//box-sizing: border-box é uma das formas de controlar como o tamanho de um elemento é calculado dentro desse modelo
 
+// Eu ki fiz!
+body {
+    background-image: url(imagens/valorant.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 main {
     font-family: "Arial", sans-serif;
@@ -16,8 +23,12 @@ main {
     display: inline-block; //Vai permitir que o nosso formulário fique no centro da tela porque o main está com a propriedade text-align definida.
     width: 400px;
     border-radius: 20px;
-    box-shadow: 0 4px 20px rgb(0, 0, 0, 0.3);
+    box-shadow: 0 4px 20px rgb(255, 0, 0);
     padding: 40px 30px;
+
+    // minha gambi pra colocar o formulário mais abaixo e com fundo branco
+    margin-top: 55px;
+    background-color: #fff;
 
 
     h1 {
@@ -93,7 +104,7 @@ button {
     }//O & é uma convenção do SCSS que se refere ao seletor pai. darken() é uma função de pré-processadores de CSS (como Sass ou Less) que escurece uma cor em uma porcentagem especificada.
 }
 
-//Medidas absolutas
+// Medidas absolutas
 // px -> Pixel é a unidade mais comun no SCSS. Um pixel é como um pontinho na tela
 // pt -> Ponto vêm do mundo da tipografia (impressão), também pouco usados na web
 // cm -> Centímetro são medidas físicas, mas quase não usamos no SCSS

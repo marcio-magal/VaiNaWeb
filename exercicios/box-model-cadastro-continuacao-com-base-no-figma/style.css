@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: url(imagens/valorant.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 main {
   font-family: "Arial", sans-serif;
   height: 100vh;
@@ -15,8 +22,10 @@ main {
   display: inline-block;
   width: 400px;
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgb(255, 0, 0);
   padding: 40px 30px;
+  margin-top: 55px;
+  background-color: #fff;
 }
 .form-container h1 {
   margin-bottom: 25px;
