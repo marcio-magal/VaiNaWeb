@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body{
+  background-color: #e8f5e9;
+}
+
+$button-color: #66bb6a;
+
+header {
+  background-image: url("./img/Banner.png");
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  color: white;
+}
+
+.box-header {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  padding: 110px 40px 40px 40px;
+  display: inline-block;
+  text-align: center;
+  height: inherit;
+  h1 {
+    font-size: 96px;
+    margin-bottom: 15px;
+  }
+  p {
+    font-size: 24PX;
+    width: 797PX;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+  button {
+    background-color: $button-color;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+}
+
+.cards {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #f1f8e9;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+article {
+  width: 290px;
+  height: 360px;
+  display: inline-block;
+  margin: 15px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+  vertical-align: top;
+  img{
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  h3 {
+    font-size: 1.3rem;
+    margin: 15px 0 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: #2e7d32;
+  }
+  p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+  button{
+    background-color: #66bb6a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+  }
+  button:hover {
+    background-color: #4caf50;
+  }
+}
+
+.cadastro {
+  background-color: #e8f5e9;
+  text-align: center;
+  padding: 50px 20px;
+
+  h2 {
+    font-size: 2rem;
+    color: #2e7d32;
+    margin-bottom: 30px;
+  }
+
+  p {
+    margin-bottom: 3%;
+    color: #777;
+    font-size: small;
+  }
+
+  form {
+    display: inline-block;
+    text-align: left;
+    background: transparent;
+  }
+
+  input, select {
+    width: 520px;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #888;
+    font-weight: bold;
+  }
+
+  button {
+    width: 520px;
+    background-color: #66bb6a;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #4caf50;
+  }
+}
+
+footer {
+  background-color: #2e7d32;
+  color: white;
+  text-align: center;
+  padding: 30px;
+
+  .direitos {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+}
